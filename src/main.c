@@ -8,7 +8,10 @@ char lines[MAX_LENGTH];
 
 void print_words(const char *filename)
 {
-    FILE *file = fopen(filename, "r");
+    char filepath[100];
+    snprintf(filepath, sizeof(filepath), "src/assets/%s", filename);
+
+    FILE *file = fopen(filepath, "r");
     if (file == NULL)
     {
         printf("Error to open the file: %s\n", filename);
@@ -50,7 +53,7 @@ int main()
     }
 
     FILE *result;
-    result = fopen("result.txt", "w");
+    result = fopen("src/assets/result.txt", "w");
 
     while (start == true)
     {
